@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select class="form-control" :id="id" :name="name" :placeholder="placeholder" :disabled="disabled"></select>
+    <select v-bind="attributes"></select>
   </div>
 </template>
 
@@ -21,25 +21,15 @@ export default {
     prop: 'value'
   },
   props: {
-    id: {
-      type: String,
-      default: ''
-    },
-    name: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
-      type: String,
-      default: ''
+    attributes: {
+      type: Object,
+      default: () => ({
+          "class": "form-control"
+        })
     },
     options: {
       type: Array,
       default: () => []
-    },
-    disabled: {
-      type: Boolean,
-      default: false
     },
     settings: {
       type: Object,
